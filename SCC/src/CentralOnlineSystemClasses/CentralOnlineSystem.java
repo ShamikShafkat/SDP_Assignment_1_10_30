@@ -3,9 +3,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CentralOnlineSystem {
-    private volatile static CentralOnlineSystem instance;
-    private final Queue<Command> commandQueue;
-    private final Thread processingThread;
+    private static CentralOnlineSystem instance;
+    private Queue<Command> commandQueue;
+    private Thread processingThread;
     private boolean isProcessing;
 
     private CentralOnlineSystem() {
