@@ -1,3 +1,4 @@
+import CentralOnlineSystemClasses.*;
 import NotificationSystemClasses.NotificationSystem;
 import NotificationSystemClasses.Subscriber;
 import NotificationSystemClasses.SubscriberClient;
@@ -51,6 +52,29 @@ public class Demo {
         subscriber2.requestForSubscriptionRemoval();
 
         notificationSystem.basicFeaturesChange();
+        System.out.println();
+
+        // Central Online System
+        System.out.print("Press enter to see Demo for Central Online system and Mobile App Integration: ");
+        scanner.nextLine();
+        CentralOnlineSystem system = CentralOnlineSystem.getInstance();
+        Command carServicingCommand = new CarServicingCommand("Shamik");
+        Command carWashingCommand = new CarWashingCommand("Saima", "Home");
+        Command onlineDeliveryCommand = new OnlineDeliveryCommand("Mark", 10000.0);
+
+        system.addCommand(carServicingCommand);
+        system.addCommand(carWashingCommand);
+        system.addCommand(onlineDeliveryCommand);
+        System.out.println();
+
+
+        // Mobile App Integration
+        
+        CentralOnlineSystem webSystem = CentralOnlineSystem.getInstance();
+        MobileAppAdapter adapter = new WebSystemAdapter(webSystem);
+        adapter.requestCarServicing("shamik");
+        adapter.requestCarWashing("Saima", "Home");
+        adapter.requestOnlineDelivery("Mark", 10000.0);
 
 
     }
