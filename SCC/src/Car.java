@@ -18,9 +18,9 @@ public abstract class Car {
 
 class RacingCar extends Car{
 
-    CarPartsFactory carPartsFactory;
-    CompanyFactory companyFactory;
-    AutomationFactory automationFactory;
+    private final CarPartsFactory carPartsFactory;
+    private final CompanyFactory companyFactory;
+    private final AutomationFactory automationFactory;
 
     public RacingCar(CarPartsFactory carPartsFactory,CompanyFactory companyFactory,AutomationFactory automationFactory) {
         this.carPartsFactory = carPartsFactory;
@@ -56,9 +56,9 @@ class RacingCar extends Car{
 
 class PrivateCar extends Car{
 
-    CarPartsFactory carPartsFactory;
-    CompanyFactory companyFactory;
-    AutomationFactory automationFactory;
+    private final CarPartsFactory carPartsFactory;
+    private final CompanyFactory companyFactory;
+    private final AutomationFactory automationFactory;
 
     public PrivateCar(CarPartsFactory carPartsFactory,CompanyFactory companyFactory,AutomationFactory automationFactory) {
         this.carPartsFactory = carPartsFactory;
@@ -94,9 +94,9 @@ class PrivateCar extends Car{
 
 class SUVCar extends Car{
 
-    CarPartsFactory carPartsFactory;
-    CompanyFactory companyFactory;
-    AutomationFactory automationFactory;
+    private final CarPartsFactory carPartsFactory;
+    private final CompanyFactory companyFactory;
+    private final AutomationFactory automationFactory;
 
     public SUVCar(CarPartsFactory carPartsFactory,CompanyFactory companyFactory,AutomationFactory automationFactory) {
         this.carPartsFactory = carPartsFactory;
@@ -132,9 +132,9 @@ class SUVCar extends Car{
 
 class MilitaryCar extends Car{
 
-    CarPartsFactory carPartsFactory;
-    CompanyFactory companyFactory;
-    AutomationFactory automationFactory;
+    private final CarPartsFactory carPartsFactory;
+    private final CompanyFactory companyFactory;
+    private final AutomationFactory automationFactory;
 
     public MilitaryCar(CarPartsFactory carPartsFactory,CompanyFactory companyFactory,AutomationFactory automationFactory) {
         this.carPartsFactory = carPartsFactory;

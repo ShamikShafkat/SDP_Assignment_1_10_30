@@ -1,5 +1,5 @@
 class ThickRainShield extends CarDecorator{
-    Car car;
+    private final Car car;
     public ThickRainShield(Car car){
         this.car = car;
     }

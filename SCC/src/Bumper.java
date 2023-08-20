@@ -5,11 +5,6 @@ class TightBumper extends CarDecorator{
     }
 
     @Override
-    public void prepareCar(CarColor carColor) {
-        this.car.prepareCar(carColor);
-    }
-
-    @Override
     public double cost() {
         return 10 + this.car.cost();
     }
@@ -24,11 +19,6 @@ class LooseBumper extends CarDecorator{
     Car car;
     public LooseBumper(Car car){
         this.car = car;
-    }
-
-    @Override
-    public void prepareCar(CarColor carColor) {
-        this.car.prepareCar(carColor);
     }
 
     @Override

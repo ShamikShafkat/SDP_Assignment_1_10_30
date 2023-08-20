@@ -4,7 +4,6 @@ public class OpenRoofSystem  extends CarDecorator{
         this.car = car;
     }
 
-
     @Override
     public double cost() {
         return 20 + this.car.cost();
