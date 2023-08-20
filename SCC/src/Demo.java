@@ -67,9 +67,7 @@ public class Demo {
         system.addCommand(onlineDeliveryCommand);
         System.out.println();
 
-
         // Mobile App Integration
-        
         CentralOnlineSystem webSystem = CentralOnlineSystem.getInstance();
         MobileAppAdapter adapter = new WebSystemAdapter(webSystem);
         adapter.requestCarServicing("shamik");
