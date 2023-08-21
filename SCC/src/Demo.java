@@ -3,6 +3,8 @@ import NotificationSystemClasses.NotificationSystem;
 import NotificationSystemClasses.Subscriber;
 import NotificationSystemClasses.SubscriberClient;
 
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Demo {
@@ -59,7 +61,9 @@ public class Demo {
         scanner.nextLine();
         CentralOnlineSystem system = CentralOnlineSystem.getInstance();
         Command carServicingCommand = new CarServicingCommand("Shamik");
-        Command carWashingCommand = new CarWashingCommand("Saima", "Home");
+        LocalDate bookingDate = LocalDate.now().plusDays(3); // Booking date is 3 days from now
+        boolean carWashApproval = true;
+        Command carWashingCommand = new CarWashingCommand("Saima", "Home", bookingDate, carWashApproval);
         Command onlineDeliveryCommand = new OnlineDeliveryCommand("Mark", 10000.0);
 
         system.addCommand(carServicingCommand);
@@ -71,7 +75,7 @@ public class Demo {
         CentralOnlineSystem webSystem = CentralOnlineSystem.getInstance();
         MobileAppAdapter adapter = new WebSystemAdapter(webSystem);
         adapter.requestCarServicing("shamik");
-        adapter.requestCarWashing("Saima", "Home");
+        adapter.requestCarWashing("Saima", "Home", bookingDate, carWashApproval);
         adapter.requestOnlineDelivery("Mark", 10000.0);
 
 
