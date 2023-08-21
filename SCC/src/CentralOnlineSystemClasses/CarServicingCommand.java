@@ -10,6 +10,8 @@ public class CarServicingCommand implements Command {
     @Override
     public void execute() {
         System.out.println("Servicing car for owner: " + ownerName);
+        System.out.println();
+
     }
 }
 

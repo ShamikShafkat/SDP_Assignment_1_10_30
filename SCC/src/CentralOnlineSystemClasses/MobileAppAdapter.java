@@ -1,8 +1,11 @@
 package CentralOnlineSystemClasses;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public interface MobileAppAdapter {
     void requestCarServicing(String ownerName);
-    void requestCarWashing(String ownerName, String desiredPlace);
+    void requestCarWashing(String ownerName, String desiredPlace, LocalDate bookingDate, boolean isApproved);
     void requestOnlineDelivery(String clientName, double paymentAmount);
 }
 //

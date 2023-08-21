@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CentralOnlineSystem {
-    private static CentralOnlineSystem instance;
+    private volatile static CentralOnlineSystem instance;
     private Queue<Command> commandQueue;
     private Thread processingThread;
     private boolean isProcessing;

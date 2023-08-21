@@ -12,6 +12,8 @@ public class OnlineDeliveryCommand implements Command {
     @Override
     public void execute() {
         System.out.println("Processing online delivery for client: " + clientName + " with payment: $" + paymentAmount);
+        System.out.println();
+
     }
 }
 

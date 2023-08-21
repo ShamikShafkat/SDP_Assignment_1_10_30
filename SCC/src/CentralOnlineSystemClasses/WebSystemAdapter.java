@@ -1,5 +1,7 @@
 package CentralOnlineSystemClasses;
 
+import java.time.LocalDate;
+
 public class WebSystemAdapter implements MobileAppAdapter {
     private CentralOnlineSystem webSystem;
 
@@ -12,11 +14,17 @@ public class WebSystemAdapter implements MobileAppAdapter {
         Command carServicingCommand = new CarServicingCommand(ownerName);
         webSystem.addCommand(carServicingCommand);
     }
+//
+//    @Override
+//    public void requestCarWashing(String ownerName, String desiredPlace) {
+//        Command carWashingCommand = new CarWashingCommand(ownerName, desiredPlace);
+//        webSystem.addCommand(carWashingCommand);
+//    }
 
     @Override
-    public void requestCarWashing(String ownerName, String desiredPlace) {
-        Command carWashingCommand = new CarWashingCommand(ownerName, desiredPlace);
-        webSystem.addCommand(carWashingCommand);
+    public void requestCarWashing(String ownerName, String desiredPlace, LocalDate bookingDate, boolean isApproved) {
+        Command carWashBookingCommand = new CarWashingCommand(ownerName, desiredPlace, bookingDate, isApproved);
+        webSystem.addCommand(carWashBookingCommand);
     }
 
     @Override
