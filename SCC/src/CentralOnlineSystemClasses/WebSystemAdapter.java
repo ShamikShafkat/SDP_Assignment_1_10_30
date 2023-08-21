@@ -1,7 +1,5 @@
 package CentralOnlineSystemClasses;
 
-import java.time.LocalDate;
-
 public class WebSystemAdapter implements MobileAppAdapter {
     private CentralOnlineSystem webSystem;
 
@@ -10,26 +8,20 @@ public class WebSystemAdapter implements MobileAppAdapter {
     }
 
     @Override
-    public void requestCarServicing(String ownerName) {
-        Command carServicingCommand = new CarServicingCommand(ownerName);
+    public void requestCarServicing(String ownerName,String date) {
+        Command carServicingCommand = new CarServicingCommand(ownerName,date);
         webSystem.addCommand(carServicingCommand);
     }
-//
-//    @Override
-//    public void requestCarWashing(String ownerName, String desiredPlace) {
-//        Command carWashingCommand = new CarWashingCommand(ownerName, desiredPlace);
-//        webSystem.addCommand(carWashingCommand);
-//    }
 
     @Override
-    public void requestCarWashing(String ownerName, String desiredPlace, LocalDate bookingDate, boolean isApproved) {
-        Command carWashBookingCommand = new CarWashingCommand(ownerName, desiredPlace, bookingDate, isApproved);
-        webSystem.addCommand(carWashBookingCommand);
+    public void requestCarWashing(String ownerName, String desiredPlace,String date) {
+        Command carWashingCommand = new CarWashingCommand(ownerName, desiredPlace,date);
+        webSystem.addCommand(carWashingCommand);
     }
 
     @Override
-    public void requestOnlineDelivery(String clientName, double paymentAmount) {
-        Command onlineDeliveryCommand = new OnlineDeliveryCommand(clientName, paymentAmount);
+    public void requestOnlineDelivery(String clientName, double paymentAmount,String date) {
+        Command onlineDeliveryCommand = new OnlineDeliveryCommand(clientName, paymentAmount,date);
         webSystem.addCommand(onlineDeliveryCommand);
     }
 }

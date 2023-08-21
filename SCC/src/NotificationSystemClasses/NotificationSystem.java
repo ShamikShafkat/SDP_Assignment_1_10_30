@@ -24,13 +24,17 @@ public class NotificationSystem implements NotificationSubject {
     }
 
     @Override
-    public synchronized void registerSubscriber(Subscriber subscriber) {
-        subscriberSet.add(subscriber);
+    public void registerSubscriber(Subscriber subscriber) {
+        synchronized (subscriberSet){
+            subscriberSet.add(subscriber);
+        }
     }
 
     @Override
-    public synchronized void removeSubscriber(Subscriber subscriber) {
-        subscriberSet.remove(subscriber);
+    public void removeSubscriber(Subscriber subscriber) {
+        synchronized (subscriberSet){
+            subscriberSet.remove(subscriber);
+        }
     }
 
     @Override

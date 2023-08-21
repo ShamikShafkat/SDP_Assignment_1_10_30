@@ -3,14 +3,16 @@ import NotificationSystemClasses.NotificationSystem;
 import NotificationSystemClasses.Subscriber;
 import NotificationSystemClasses.SubscriberClient;
 
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class Demo {
 
     public static void main(String[] args){
         //Demo for first three points
+        System.out.println("This will show a basic demo for all points");
+        System.out.println("To see a better demo for 5th point with multi-threading , please run the demo inside CentralOnlineSystem package");
+
+
         System.out.print("Press enter to see Demo for First 3 points : ");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
@@ -34,7 +36,6 @@ public class Demo {
         car = new OpenRoofSystem(car);
         System.out.println("Total cost of the car is : " + car.cost());
         System.out.println(car.getDescription());
-        System.out.println();
 
         //Demo for notification system
         System.out.print("Press enter to see Demo for notification system : ");
@@ -54,29 +55,25 @@ public class Demo {
         subscriber2.requestForSubscriptionRemoval();
 
         notificationSystem.basicFeaturesChange();
-        System.out.println();
 
         // Central Online System
         System.out.print("Press enter to see Demo for Central Online system and Mobile App Integration: ");
         scanner.nextLine();
         CentralOnlineSystem system = CentralOnlineSystem.getInstance();
-        Command carServicingCommand = new CarServicingCommand("Shamik");
-        LocalDate bookingDate = LocalDate.now().plusDays(3); // Booking date is 3 days from now
-        boolean carWashApproval = true;
-        Command carWashingCommand = new CarWashingCommand("Saima", "Home", bookingDate, carWashApproval);
-        Command onlineDeliveryCommand = new OnlineDeliveryCommand("Mark", 10000.0);
+        Command carServicingCommand = new CarServicingCommand("Shamik","21/08/2023");
+        Command carWashingCommand = new CarWashingCommand("Saima", "Home","21/08/2023");
+        Command onlineDeliveryCommand = new OnlineDeliveryCommand("Mark", 10000.0,"21/08/2023");
 
         system.addCommand(carServicingCommand);
         system.addCommand(carWashingCommand);
         system.addCommand(onlineDeliveryCommand);
-        System.out.println();
 
         // Mobile App Integration
         CentralOnlineSystem webSystem = CentralOnlineSystem.getInstance();
         MobileAppAdapter adapter = new WebSystemAdapter(webSystem);
-        adapter.requestCarServicing("shamik");
-        adapter.requestCarWashing("Saima", "Home", bookingDate, carWashApproval);
-        adapter.requestOnlineDelivery("Mark", 10000.0);
+        adapter.requestCarServicing("shamik","21/08/2023");
+        adapter.requestCarWashing("Saima", "Shop","21/08/2023");
+        adapter.requestOnlineDelivery("Mark", 10000.0,"21/08/2023");
 
 
     }
